@@ -7,7 +7,8 @@ namespace TD.Data.Units
     [GenerateAuthoringComponent]
     public struct UnitMovementData : IComponentData
     {
-        public float3 positionOffset;
+        public float positionYOffset;
+        public float baseYOffset;
         public float lerpSpeed;
         public float minNextPositionDistacne;
 

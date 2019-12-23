@@ -29,32 +29,53 @@ namespace TD.Systems.Units
 
                             if (currentPathValid)
                             {
+                                currentTargetPoint.y = unitMovementData.baseYOffset;
                                 unitMovementData._targetPosition = currentTargetPoint;
                                 unitMovementData._initalPathFindingLaunched = true;
 
-                                unitMovementData._startPosition = translation.Value;
+                                float3 position = translation.Value;
+                                unitMovementData._startPosition = new float3(
+                                    position.x,
+                                    unitMovementData.baseYOffset,
+                                    position.z
+                                );
                                 unitMovementData._lerpAmount = 0;
                             }
                         }
-                        else if (math.distance(translation.Value, unitMovementData._targetPosition) <=
-                                 unitMovementData.minNextPositionDistacne)
+                        else
                         {
-                            float3 nextTargetPoint;
-                            bool nextPathValid = PathManager.Instance.GetNextPointInPath(
-                                unitMovementData._currentPathIndex, out nextTargetPoint
+                            float3 modifiedPosition = new float3(
+                                translation.Value.x,
+                                unitMovementData.baseYOffset,
+                                translation.Value.z
                             );
-
-                            if (nextPathValid)
+                            if (math.distance(modifiedPosition, unitMovementData._targetPosition) <=
+                                unitMovementData.minNextPositionDistacne)
                             {
-                                unitMovementData._targetPosition = nextTargetPoint;
-                                unitMovementData._currentPathIndex += 1;
+                                float3 nextTargetPoint;
+                                bool nextPathValid = PathManager.Instance.GetNextPointInPath(
+                                    unitMovementData._currentPathIndex, out nextTargetPoint
+                                );
 
-                                unitMovementData._startPosition = translation.Value;
-                                unitMovementData._lerpAmount = 0;
-                            }
-                            else
-                            {
-                                unitMovementData._reachedEndPoint = true;
+                                if (nextPathValid)
+                                {
+                                    nextTargetPoint.y = unitMovementData.baseYOffset;
+                                    unitMovementData._targetPosition = nextTargetPoint;
+                                    unitMovementData._currentPathIndex += 1;
+
+
+                                    float3 position = translation.Value;
+                                    unitMovementData._startPosition = new float3(
+                                        position.x,
+                                        unitMovementData.baseYOffset,
+                                        position.z
+                                    );
+                                    unitMovementData._lerpAmount = 0;
+                                }
+                                else
+                                {
+                                    unitMovementData._reachedEndPoint = true;
+                                }
                             }
                         }
 
@@ -65,7 +86,7 @@ namespace TD.Systems.Units
                             unitMovementData._targetPosition,
                             unitMovementData._lerpAmount
                         );
-                        translation.Value = lerpDistance;
+                        translation.Value = lerpDistance + new float3(0, unitMovementData.positionYOffset, 0);
                     }
                 }).Run();
 
