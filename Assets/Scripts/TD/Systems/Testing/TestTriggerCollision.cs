@@ -40,8 +40,6 @@ namespace TD.Systems.Testing
             {
                 Entity entityA = triggerEvent.Entities.EntityA;
                 Entity entityB = triggerEvent.Entities.EntityB;
-
-                Debug.Log("Running Events Job");
             }
         }
     }

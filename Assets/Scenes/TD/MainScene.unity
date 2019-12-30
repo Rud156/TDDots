@@ -18730,7 +18730,7 @@ MonoBehaviour:
   DrawContacts: 1
   DrawCollisionEvents: 1
   DrawTriggerEvents: 1
-  DrawJoints: 0
+  DrawJoints: 1
 --- !u!1 &1687568737
 GameObject:
   m_ObjectHideFlags: 0
