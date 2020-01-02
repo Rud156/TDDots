@@ -1,4 +1,5 @@
 ﻿using TD.Data.Units;
+using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -32,6 +33,7 @@ namespace TD.Systems.Testing
             return jobHandle;
         }
 
+        [BurstCompile]
         struct TriggerCollisonCheckJob : ITriggerEventsJob
         {
             [ReadOnly] public ComponentDataFromEntity<UnitEnemy> enemies;

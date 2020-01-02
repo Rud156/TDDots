@@ -384,6 +384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498834}
   - component: {fileID: 13752230}
+  - component: {fileID: 2568460203655579281}
   m_Layer: 0
   m_Name: UD_light_infantry
   m_TagString: Untagged
@@ -473,6 +474,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.035051912, y: 0.2145089, z: 0.12948987}
     m_Extent: {x: 0.7688222, y: 0.668301, z: 0.95111597}
   m_DirtyAABB: 0
+--- !u!114 &2568460203655579281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e62f6a0e6fcc05c44a28697da6a422a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rig: {fileID: 606849993}
+  SkinnedMeshRenderer: {fileID: 13752230}
 --- !u!1 &140304
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,9 +621,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403496}
-  - component: {fileID: 9542308}
+  - component: {fileID: 606849992}
+  - component: {fileID: 606849993}
   m_Layer: 0
-  m_Name: UD_demo_character
+  m_Name: Skeleton Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,25 +646,95 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &9542308
-Animator:
-  serializedVersion: 3
+--- !u!114 &606849992
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 165424}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f3392e95529ae7540ad53657e3d0ce7d, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d52c1de4f76b1545946555cfe16e162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RenderBones: 1
+  BoneShape: 1
+  Color: {r: 0, g: 1, b: 0, a: 0.39215687}
+  Size: 1
+  BoneMaterial: {fileID: 2100000, guid: 8ca26d85de088514ca3f30af2f7cde60, type: 2}
+  RigComponent: {fileID: 606849993}
+  Transforms:
+  - {fileID: 484494}
+  - {fileID: 424562}
+  - {fileID: 402570}
+  - {fileID: 497050}
+  - {fileID: 467566}
+  - {fileID: 401094}
+  - {fileID: 436904}
+  - {fileID: 495084}
+  - {fileID: 463978}
+  - {fileID: 479846}
+  - {fileID: 463466}
+  - {fileID: 478980}
+  - {fileID: 480610}
+  - {fileID: 465924}
+  - {fileID: 400368}
+  - {fileID: 422790}
+  - {fileID: 477970}
+  - {fileID: 457934}
+  - {fileID: 445478}
+  - {fileID: 420612}
+  - {fileID: 443834}
+  - {fileID: 411442}
+  - {fileID: 402808}
+  - {fileID: 411264}
+  - {fileID: 411690}
+--- !u!114 &606849993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aea18a9fecfd504ba1a9c0f8ebcb60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bones:
+  - {fileID: 403496}
+  - {fileID: 484494}
+  - {fileID: 424562}
+  - {fileID: 402570}
+  - {fileID: 497050}
+  - {fileID: 467566}
+  - {fileID: 401094}
+  - {fileID: 436904}
+  - {fileID: 495084}
+  - {fileID: 463978}
+  - {fileID: 479846}
+  - {fileID: 463466}
+  - {fileID: 478980}
+  - {fileID: 480610}
+  - {fileID: 465924}
+  - {fileID: 400368}
+  - {fileID: 422790}
+  - {fileID: 477970}
+  - {fileID: 457934}
+  - {fileID: 445478}
+  - {fileID: 420612}
+  - {fileID: 443834}
+  - {fileID: 411442}
+  - {fileID: 402808}
+  - {fileID: 411264}
+  - {fileID: 411690}
+  - {fileID: 498834}
+  TranslationChannels: []
+  RotationChannels: []
+  ScaleChannels: []
+  FloatChannels: []
+  IntChannels: []
 --- !u!1 &165938
 GameObject:
   m_ObjectHideFlags: 0
