@@ -23,7 +23,7 @@ namespace TD.Systems.Units
                         if (!unitMovementData._initalPathFindingLaunched)
                         {
                             float3 currentTargetPoint;
-                            bool currentPathValid = PathManager.Instance.GetCurrentPointInPath(
+                            bool currentPathValid = PathManager.Instance.GetCurrentPointInPathWithVariation(
                                 unitMovementData._currentPathIndex, out currentTargetPoint
                             );
 
@@ -53,7 +53,7 @@ namespace TD.Systems.Units
                                 unitMovementData.minNextPositionDistacne)
                             {
                                 float3 nextTargetPoint;
-                                bool nextPathValid = PathManager.Instance.GetNextPointInPath(
+                                bool nextPathValid = PathManager.Instance.GetNextPointInPathWithVariation(
                                     unitMovementData._currentPathIndex, out nextTargetPoint
                                 );
 

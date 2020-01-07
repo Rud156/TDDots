@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace TD.Managers.MainScene
 {
     public class PathManager : MonoBehaviour
     {
+        public float pathPointVariation;
         public List<Transform> wayPoints;
 
         private List<Vector3> _wayPointPositions;
@@ -34,6 +36,19 @@ namespace TD.Managers.MainScene
             return true;
         }
 
+        public bool GetNextPointInPathWithVariation(int pathIndex, out float3 nextPoint)
+        {
+            if (!IsValidWayPointIndex(pathIndex) || !IsValidWayPointIndex(pathIndex + 1))
+            {
+                nextPoint = Vector3.zero;
+                return false;
+            }
+
+            nextPoint = _wayPointPositions[pathIndex + 1];
+            nextPoint += Random.Range(-pathPointVariation, pathPointVariation);
+            return true;
+        }
+
         public bool GetCurrentPointInPath(int pathIndex, out float3 currentPoint)
         {
             if (!IsValidWayPointIndex(pathIndex))
@@ -43,6 +58,19 @@ namespace TD.Managers.MainScene
             }
 
             currentPoint = _wayPointPositions[pathIndex];
+            return true;
+        }
+
+        public bool GetCurrentPointInPathWithVariation(int pathIndex, out float3 currentPoint)
+        {
+            if (!IsValidWayPointIndex(pathIndex))
+            {
+                currentPoint = Vector3.zero;
+                return false;
+            }
+
+            currentPoint = _wayPointPositions[pathIndex];
+            currentPoint += Random.Range(-pathPointVariation, pathPointVariation);
             return true;
         }
 
