@@ -621,7 +621,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 403496}
-  - component: {fileID: 606849992}
   - component: {fileID: 606849993}
   m_Layer: 0
   m_Name: Skeleton Character
@@ -646,50 +645,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &606849992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d52c1de4f76b1545946555cfe16e162, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RenderBones: 1
-  BoneShape: 1
-  Color: {r: 0, g: 1, b: 0, a: 0.39215687}
-  Size: 1
-  BoneMaterial: {fileID: 2100000, guid: 8ca26d85de088514ca3f30af2f7cde60, type: 2}
-  RigComponent: {fileID: 606849993}
-  Transforms:
-  - {fileID: 484494}
-  - {fileID: 424562}
-  - {fileID: 402570}
-  - {fileID: 497050}
-  - {fileID: 467566}
-  - {fileID: 401094}
-  - {fileID: 436904}
-  - {fileID: 495084}
-  - {fileID: 463978}
-  - {fileID: 479846}
-  - {fileID: 463466}
-  - {fileID: 478980}
-  - {fileID: 480610}
-  - {fileID: 465924}
-  - {fileID: 400368}
-  - {fileID: 422790}
-  - {fileID: 477970}
-  - {fileID: 457934}
-  - {fileID: 445478}
-  - {fileID: 420612}
-  - {fileID: 443834}
-  - {fileID: 411442}
-  - {fileID: 402808}
-  - {fileID: 411264}
-  - {fileID: 411690}
 --- !u!114 &606849993
 MonoBehaviour:
   m_ObjectHideFlags: 0
