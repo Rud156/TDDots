@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 5630786886347464721}
   - component: {fileID: 5642405107452497133}
   - component: {fileID: 5649575438637810121}
+  - component: {fileID: 1623262549438272755}
+  - component: {fileID: 4467145243777490133}
+  - component: {fileID: 8879079442611635060}
   - component: {fileID: 4734286367690006319}
   m_Layer: 0
   m_Name: IceBlades
@@ -81,6 +84,63 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1623262549438272755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ac81e953f182247a97b7cc95f4cab9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4467145243777490133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa521b9cee5fde8488d653d53aba8d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionYOffset: 1
+  baseYOffset: 0
+  lerpSpeed: 1
+  minNextPositionDistacne: 1
+  _targetPosition:
+    x: 0
+    y: 0
+    z: 0
+  _currentPathIndex: 0
+  _reachedEndPoint: 0
+  _initalPathFindingLaunched: 0
+  _startPosition:
+    x: 0
+    y: 0
+    z: 0
+  _lerpAmount: 0
+--- !u!114 &8879079442611635060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463061ec697b09146acdcaa69d20e330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 3
+  _lastPosition:
+    x: 0
+    y: 0
+    z: 0
 --- !u!114 &4734286367690006319
 MonoBehaviour:
   m_ObjectHideFlags: 0

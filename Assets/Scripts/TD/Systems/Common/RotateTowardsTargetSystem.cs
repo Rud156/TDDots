@@ -29,7 +29,7 @@ namespace TD.Systems.Common
                 float3 previousPosition = rotateTowardsTarget._lastPosition;
                 float3 currentPosition = translation.Value;
 
-                float3 directionVector = (previousPosition - currentPosition);
+                float3 directionVector = (currentPosition - previousPosition);
                 quaternion rotationValue = quaternion.LookRotation(directionVector, math.up());
 
                 rotation.Value = math.slerp(

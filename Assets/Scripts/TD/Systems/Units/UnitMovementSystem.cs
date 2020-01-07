@@ -8,7 +8,7 @@ using Unity.Transforms;
 namespace TD.Systems.Units
 {
     [AlwaysSynchronizeSystem]
-    public class PathFindingSystem : JobComponentSystem
+    public class UnitMovementSystem : JobComponentSystem
     {
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {

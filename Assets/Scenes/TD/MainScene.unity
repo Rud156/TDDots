@@ -3758,6 +3758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534fd02e1d30b6a4d9b63e26109df583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pathPointVariation: 1.5
   wayPoints:
   - {fileID: 579195355}
   - {fileID: 1130247257}
