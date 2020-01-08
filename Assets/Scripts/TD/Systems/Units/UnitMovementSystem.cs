@@ -33,12 +33,7 @@ namespace TD.Systems.Units
                                 unitMovementData._targetPosition = currentTargetPoint;
                                 unitMovementData._initalPathFindingLaunched = true;
 
-                                float3 position = translation.Value;
-                                unitMovementData._startPosition = new float3(
-                                    position.x,
-                                    unitMovementData.baseYOffset,
-                                    position.z
-                                );
+                                unitMovementData._startPosition = currentTargetPoint;
                                 unitMovementData._lerpAmount = 0;
                             }
                         }

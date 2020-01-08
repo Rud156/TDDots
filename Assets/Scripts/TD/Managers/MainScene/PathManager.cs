@@ -8,6 +8,7 @@ namespace TD.Managers.MainScene
     public class PathManager : MonoBehaviour
     {
         public float pathPointVariation;
+        public Transform startPoint;
         public List<Transform> wayPoints;
 
         private List<Vector3> _wayPointPositions;
@@ -23,6 +24,8 @@ namespace TD.Managers.MainScene
         #endregion
 
         #region External Functions
+
+        public float3 GetStartingPoint() => startPoint.position;
 
         public bool GetNextPointInPath(int pathIndex, out float3 nextPoint)
         {
