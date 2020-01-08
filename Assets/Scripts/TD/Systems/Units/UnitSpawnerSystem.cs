@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using UnityEngine;
+using UnityEngine.Rendering;
 using Random = Unity.Mathematics.Random;
 
 namespace TD.Systems.Units
@@ -11,20 +12,19 @@ namespace TD.Systems.Units
     public class UnitSpawnerSystem : JobComponentSystem
     {
         private BeginInitializationEntityCommandBufferSystem _commandBufferSystem;
-        private Random _random;
 
         protected override void OnCreate()
         {
             base.OnCreate();
 
-            _random = new Random((uint) UnityEngine.Random.Range(1, 1000));
             _commandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
         }
 
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             float deltaTime = Time.DeltaTime;
-            Random random = _random;
+            uint seed = (uint) (UnityEngine.Random.value * 10000);
+            Random random = new Random(seed);
             var entityCommandBuffer = _commandBufferSystem.CreateCommandBuffer().ToConcurrent();
 
             JobHandle jobHandle = Entities.ForEach(
@@ -38,7 +38,7 @@ namespace TD.Systems.Units
                     // Spawn Light Enemy Update Time
                     if (spawnerData._currentLightUnitTime <= 0)
                     {
-                        for (int i = 0; i < spawnerData.lightEntityBurstCount; i++)
+                        if (spawnerData._currentLightEntityInBetweenTime <= 0)
                         {
                             float value = random.NextFloat();
                             if (value <= 0.5f)
@@ -49,12 +49,26 @@ namespace TD.Systems.Units
                             {
                                 entityCommandBuffer.Instantiate(entityInQueryIndex, spawnerData.lightEntityB);
                             }
-                        }
 
-                        spawnerData._currentLightUnitTime = spawnerData
-                            ._currentDeadPerSec
-                            .Map(spawnerData.minDeathPerSec, spawnerData.maxDeathPerSec,
-                                spawnerData.maxTimeBetweenLightEntity, spawnerData.minTimeBetweenLightEntity);
+                            spawnerData._currentLightEntityCount += 1;
+                            if (spawnerData._currentLightEntityCount >= spawnerData.lightEntityBurstCount)
+                            {
+                                spawnerData._currentLightUnitTime = spawnerData
+                                    ._currentDeadPerSec
+                                    .Map(spawnerData.minDeathPerSec, spawnerData.maxDeathPerSec,
+                                        spawnerData.maxTimeBetweenLightEntity, spawnerData.minTimeBetweenLightEntity);
+
+                                spawnerData._currentLightEntityCount = 0;
+                            }
+                            else
+                            {
+                                spawnerData._currentLightEntityInBetweenTime = spawnerData.lightBurstTimeBetween;
+                            }
+                        }
+                        else
+                        {
+                            spawnerData._currentLightEntityInBetweenTime -= deltaTime;
+                        }
                     }
                     else
                     {

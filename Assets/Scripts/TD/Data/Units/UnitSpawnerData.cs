@@ -17,11 +17,14 @@ namespace TD.Data.Units
         public float maxTimeBetweenHeavyEntity;
 
         [Header("Light Entity")] public int lightEntityBurstCount;
+        public float lightBurstTimeBetween;
 
         [Header("Death Count Per Sec")] public float minDeathPerSec;
         public float maxDeathPerSec;
 
         [Header("Internal Data")] public float _currentDeadPerSec;
+        public int _currentLightEntityCount;
+        public float _currentLightEntityInBetweenTime;
         public float _currentLightUnitTime;
         public float _currentHeavyUnitTime;
         public bool _spawnInActive;

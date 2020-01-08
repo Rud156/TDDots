@@ -14405,9 +14405,12 @@ MonoBehaviour:
   minTimeBetweenHeavyEntity: 0.7
   maxTimeBetweenHeavyEntity: 2
   lightEntityBurstCount: 7
+  lightBurstTimeBetween: 0.1
   minDeathPerSec: 1
   maxDeathPerSec: 7
   _currentDeadPerSec: 0
+  _currentLightEntityCount: 0
+  _currentLightEntityInBetweenTime: 0
   _currentLightUnitTime: 0
   _currentHeavyUnitTime: 0
   _spawnInActive: 0
