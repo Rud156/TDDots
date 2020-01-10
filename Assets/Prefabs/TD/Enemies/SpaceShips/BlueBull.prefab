@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1539854339}
   - component: {fileID: 1539854338}
   - component: {fileID: 1539854337}
+  - component: {fileID: 2713591212668532233}
   - component: {fileID: 6907603237076930135}
   m_Layer: 0
   m_Name: BlueBull
@@ -172,6 +173,31 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+--- !u!114 &2713591212668532233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977054515647702537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082afc44d570d6d4ba1d0960101abd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 3416740868481432152, guid: 7e3018c18a8086446bc5f58c04cfa6da,
+    type: 3}
+  shootingOffsetA:
+    x: 0.844
+    y: -0.0908
+    z: 0.489
+  shootingOffsetB:
+    x: -0.791
+    y: -0.0908
+    z: 0.489
+  useBothShootPoints: 1
+  timeBetweenShots: 0
+  _timeLeftBetweenShot: 0
 --- !u!114 &6907603237076930135
 MonoBehaviour:
   m_ObjectHideFlags: 0

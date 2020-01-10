@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1623262549438272755}
   - component: {fileID: 4467145243777490133}
   - component: {fileID: 8879079442611635060}
+  - component: {fileID: 2565482410217845538}
   - component: {fileID: 4734286367690006319}
   m_Layer: 0
   m_Name: IceBlades
@@ -29,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5635036052104799331}
-  m_LocalRotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.56, y: 0.89505, z: 1.17}
   m_LocalScale: {x: 0.10312, y: 0.10312, z: 0.10312}
   m_Children: []
@@ -141,6 +142,30 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+--- !u!114 &2565482410217845538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082afc44d570d6d4ba1d0960101abd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1496391033227999803, guid: 9b062fe98bab1dc4dba378e7391728bf,
+    type: 3}
+  shootingOffsetA:
+    x: 0
+    y: 0
+    z: 0
+  shootingOffsetB:
+    x: 0
+    y: 0
+    z: 0
+  timeBetweenShots: 1
+  _timeLeftBetweenShot: 0
 --- !u!114 &4734286367690006319
 MonoBehaviour:
   m_ObjectHideFlags: 0

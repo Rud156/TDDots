@@ -1,6 +1,7 @@
 ﻿using TD.Data.Units;
 using Unity.Entities;
 using Unity.Jobs;
+using Unity.Transforms;
 
 namespace TD.Systems.Units
 {
@@ -25,7 +26,23 @@ namespace TD.Systems.Units
                 {
                     if (unitProjectileSpawner._timeLeftBetweenShot <= 0)
                     {
-                        entityCommnadBuffer.Instantiate(entityInQueryIndex, unitProjectileSpawner.projectile);
+                        Entity projectileInstanceA =
+                            entityCommnadBuffer.Instantiate(entityInQueryIndex, unitProjectileSpawner.projectile);
+                        entityCommnadBuffer.SetComponent(entityInQueryIndex, projectileInstanceA, new Translation()
+                        {
+                            Value = unitProjectileSpawner.shootingOffsetA
+                        });
+
+                        if (unitProjectileSpawner.useBothShootPoints)
+                        {
+                            Entity projectileInstanceB =
+                                entityCommnadBuffer.Instantiate(entityInQueryIndex, unitProjectileSpawner.projectile);
+                            entityCommnadBuffer.SetComponent(entityInQueryIndex, projectileInstanceB, new Translation()
+                            {
+                                Value = unitProjectileSpawner.shootingOffsetB
+                            });
+                        }
+
                         unitProjectileSpawner._timeLeftBetweenShot = unitProjectileSpawner.timeBetweenShots;
                     }
                     else

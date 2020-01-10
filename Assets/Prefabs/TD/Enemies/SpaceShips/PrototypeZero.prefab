@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2200006961154253636}
   - component: {fileID: 2953980759024280000}
   - component: {fileID: 5314178450741830206}
+  - component: {fileID: 3105569255825411474}
   - component: {fileID: 8247885192420158740}
   m_Layer: 0
   m_Name: PrototypeZero
@@ -174,6 +175,31 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+--- !u!114 &3105569255825411474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440790055946006515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082afc44d570d6d4ba1d0960101abd1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 6927268852022308372, guid: 8555cb7d486603846b312e9d147859db,
+    type: 3}
+  shootingOffsetA:
+    x: -2.115868
+    y: -0.434797
+    z: 0
+  shootingOffsetB:
+    x: 2.084132
+    y: -0.434797
+    z: 0
+  useBothShootPoints: 1
+  timeBetweenShots: 1
+  _timeLeftBetweenShot: 0
 --- !u!114 &8247885192420158740
 MonoBehaviour:
   m_ObjectHideFlags: 0
