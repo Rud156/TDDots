@@ -4,7 +4,7 @@ using UnityEngine;
 namespace TD.Data.Units
 {
     [GenerateAuthoringComponent]
-    public struct UnitProjectileSyncData : IComponentData
+    public struct ProjectileSyncData : IComponentData
     {
         public enum EffectType
         {

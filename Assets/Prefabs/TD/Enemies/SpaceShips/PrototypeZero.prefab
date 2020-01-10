@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6927268852022308372, guid: 8555cb7d486603846b312e9d147859db,
     type: 3}
+  projectileLaunchVelocity: 10
   shootingOffsetA:
     x: -2.115868
     y: -0.434797

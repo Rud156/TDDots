@@ -51,7 +51,7 @@ namespace TD.Managers.MainScene
             _trailHolders[trailRendererHolder.elementIndex] = trailRendererHolder;
         }
 
-        public void StopParticleEffect(int effectIndex)
+        public void StopTrailEffect(int effectIndex)
         {
             TrailRendererHolder trailRendererHolder = _trailHolders[effectIndex];
             if (!trailRendererHolder.isActive)

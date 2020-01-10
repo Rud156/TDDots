@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 93171745319530497}
   - component: {fileID: 8667198365334498138}
   - component: {fileID: -4837112904227599258}
+  - component: {fileID: 7198360106392977557}
   - component: {fileID: 5372812737264811612}
   m_Layer: 0
   m_Name: BlueBull Projectile
@@ -247,6 +248,21 @@ MonoBehaviour:
   effectType: 1
   _effectIndex: 0
   _effectInitialized: 0
+--- !u!114 &7198360106392977557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3416740868481432152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a259c7c7b6622e946a985ed677377958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifeTime: 1.5
+  _currentLifetimeLeft: 0
+  _timeInitialized: 0
 --- !u!114 &5372812737264811612
 MonoBehaviour:
   m_ObjectHideFlags: 0

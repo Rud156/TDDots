@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1558668375388099072}
   - component: {fileID: 8795670722258542212}
   - component: {fileID: 4051874747804194568}
+  - component: {fileID: 777163221393812299}
   - component: {fileID: 8081796271969078364}
   m_Layer: 0
   m_Name: Rocker Projectile
@@ -248,6 +249,21 @@ MonoBehaviour:
   effectType: 3
   _effectIndex: 0
   _effectInitialized: 0
+--- !u!114 &777163221393812299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976000301909952110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a259c7c7b6622e946a985ed677377958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifeTime: 1.5
+  _currentLifetimeLeft: 0
+  _timeInitialized: 0
 --- !u!114 &8081796271969078364
 MonoBehaviour:
   m_ObjectHideFlags: 0

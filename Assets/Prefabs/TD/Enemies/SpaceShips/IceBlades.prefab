@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1496391033227999803, guid: 9b062fe98bab1dc4dba378e7391728bf,
     type: 3}
+  projectileLaunchVelocity: 10
   shootingOffsetA:
     x: 0
     y: 0
@@ -164,6 +165,7 @@ MonoBehaviour:
     x: 0
     y: 0
     z: 0
+  useBothShootPoints: 0
   timeBetweenShots: 1
   _timeLeftBetweenShot: 0
 --- !u!114 &4734286367690006319

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8130463829382796741}
   - component: {fileID: 7959894809778542178}
   - component: {fileID: 2553883946336138877}
+  - component: {fileID: 3931526821890495208}
   - component: {fileID: 6737828174673030802}
   m_Layer: 0
   m_Name: IceBlades Projectile
@@ -232,6 +233,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileDamageAmount: 20
+--- !u!114 &3931526821890495208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496391033227999803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a259c7c7b6622e946a985ed677377958, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileLifeTime: 1.5
+  _currentLifetimeLeft: 0
+  _timeInitialized: 0
 --- !u!114 &6737828174673030802
 MonoBehaviour:
   m_ObjectHideFlags: 0

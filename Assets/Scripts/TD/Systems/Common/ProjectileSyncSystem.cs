@@ -7,27 +7,27 @@ using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 
-namespace TD.Systems.Units
+namespace TD.Systems.Common
 {
     [AlwaysSynchronizeSystem]
-    public class UnitProjectileSyncSystem : JobComponentSystem
+    public class ProjectileSyncSystem : JobComponentSystem
     {
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             Entities
                 .WithoutBurst()
-                .ForEach((ref UnitProjectileSyncData unitProjectileSync, in Translation translation) =>
+                .ForEach((ref ProjectileSyncData unitProjectileSync, in Translation translation) =>
                 {
-                    UnitProjectileSyncData.EffectType effectType = unitProjectileSync.effectType;
+                    ProjectileSyncData.EffectType effectType = unitProjectileSync.effectType;
                     if (unitProjectileSync._effectInitialized)
                     {
                         switch (effectType)
                         {
-                            case UnitProjectileSyncData.EffectType.None:
+                            case ProjectileSyncData.EffectType.None:
                                 Debug.Log("Invalid Effect Type");
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.BlueBullTrail:
+                            case ProjectileSyncData.EffectType.BlueBullTrail:
                             {
                                 float3 position = translation.Value;
                                 BlueBullTrailSyncManager.Instance.UpdateTrailPosition(
@@ -36,7 +36,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.PrototypeZeroEffect:
+                            case ProjectileSyncData.EffectType.PrototypeZeroEffect:
                             {
                                 float3 position = translation.Value;
                                 PrototypeZeroEffectSyncManager.Instance.UpdateEffectPosition(
@@ -45,7 +45,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.RockerTrail:
+                            case ProjectileSyncData.EffectType.RockerTrail:
                             {
                                 float3 position = translation.Value;
                                 RockerTrailSyncManager.Instance.UpdateTrailPosition(
@@ -54,7 +54,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.Max:
+                            case ProjectileSyncData.EffectType.Max:
                                 Debug.Log("Invalid Effect Type");
                                 break;
 
@@ -66,11 +66,11 @@ namespace TD.Systems.Units
                     {
                         switch (effectType)
                         {
-                            case UnitProjectileSyncData.EffectType.None:
+                            case ProjectileSyncData.EffectType.None:
                                 Debug.Log("Invalid Effect Requested");
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.BlueBullTrail:
+                            case ProjectileSyncData.EffectType.BlueBullTrail:
                             {
                                 int trailIndex = BlueBullTrailSyncManager.Instance
                                     .GetTrailEffectIndex(translation.Value);
@@ -80,7 +80,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.PrototypeZeroEffect:
+                            case ProjectileSyncData.EffectType.PrototypeZeroEffect:
                             {
                                 int effectIndex = PrototypeZeroEffectSyncManager.Instance
                                     .GetEffectParticleIndex(translation.Value);
@@ -90,7 +90,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.RockerTrail:
+                            case ProjectileSyncData.EffectType.RockerTrail:
                             {
                                 int trailIndex = RockerTrailSyncManager.Instance
                                     .GetTrailEffectIndex(translation.Value);
@@ -100,7 +100,7 @@ namespace TD.Systems.Units
                             }
                                 break;
 
-                            case UnitProjectileSyncData.EffectType.Max:
+                            case ProjectileSyncData.EffectType.Max:
                                 Debug.Log("Invalid Effect Requested");
                                 break;
 

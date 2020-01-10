@@ -8,6 +8,7 @@ namespace TD.Data.Units
     public struct UnitProjectileSpawnerData : IComponentData
     {
         [Header("Projectile")] public Entity projectile;
+        public float projectileLaunchVelocity;
 
         [Header("Shooting Offsets")] public float3 shootingOffsetA;
         public float3 shootingOffsetB;
