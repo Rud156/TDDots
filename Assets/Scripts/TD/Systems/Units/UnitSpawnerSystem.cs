@@ -3,8 +3,6 @@ using TD.Utils;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
-using UnityEngine;
-using UnityEngine.Rendering;
 using Random = Unity.Mathematics.Random;
 
 namespace TD.Systems.Units
