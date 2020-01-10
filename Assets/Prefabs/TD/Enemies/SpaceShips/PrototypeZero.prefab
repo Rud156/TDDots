@@ -89,10 +89,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5443396908842311509}
+  - component: {fileID: 5593944175080611163}
   - component: {fileID: 2200006961154253636}
   - component: {fileID: 2953980759024280000}
   - component: {fileID: 5314178450741830206}
   - component: {fileID: 3105569255825411474}
+  - component: {fileID: 1421787999072570755}
   - component: {fileID: 8247885192420158740}
   m_Layer: 0
   m_Name: PrototypeZero
@@ -118,6 +120,79 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5593944175080611163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440790055946006515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: -0.000099897385
+    y: 0.20486712
+    z: 0.1959176
+  m_PrimitiveSize:
+    x: 7.8749814
+    y: 2.3549757
+    z: 5.740696
+  m_PrimitiveOrientation:
+    Value:
+      x: -0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_Capsule:
+    Height: 7.8749814
+    Radius: 2.870348
+    Axis: 0
+  m_Cylinder:
+    Height: 2.3549757
+    Radius: 3.9374907
+    Axis: 1
+  m_CylinderSideCount: 20
+  m_SphereRadius: 3.9374907
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.11812472
+    m_BevelRadius: 0.05
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 0}
+    m_IsTrigger:
+      m_Override: 0
+      m_Value: 1
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0.5
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsTo:
+      m_Override: 0
+      m_Value: 0101010101010101010101010101010101010101010101010101010101010101
+    m_CollidesWith:
+      m_Override: 0
+      m_Value: 0101010101010101010101010101010101010101010101010101010101010101
+    m_RaisesCollisionEvents:
+      m_Override: 0
+      m_Value: 0
+    m_CustomTags:
+      m_Override: 0
+      m_Value: 0000000000000000
+  m_ConvexRadius_Deprecated: -1
 --- !u!114 &2200006961154253636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +276,20 @@ MonoBehaviour:
   useBothShootPoints: 1
   timeBetweenShots: 1
   _timeLeftBetweenShot: 0
+--- !u!114 &1421787999072570755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440790055946006515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b86156f5d03218469a7361fc361c67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHelth: 0
 --- !u!114 &8247885192420158740
 MonoBehaviour:
   m_ObjectHideFlags: 0

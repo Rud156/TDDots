@@ -11,10 +11,12 @@ GameObject:
   - component: {fileID: 5630786886347464721}
   - component: {fileID: 5642405107452497133}
   - component: {fileID: 5649575438637810121}
+  - component: {fileID: 2540138069245953256}
   - component: {fileID: 1623262549438272755}
   - component: {fileID: 4467145243777490133}
   - component: {fileID: 8879079442611635060}
   - component: {fileID: 2565482410217845538}
+  - component: {fileID: 5767078989745270574}
   - component: {fileID: 4734286367690006319}
   m_Layer: 0
   m_Name: IceBlades
@@ -85,6 +87,79 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2540138069245953256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b275e5f92732148048d7b77e264ac30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShapeType: 0
+  m_PrimitiveCenter:
+    x: 0
+    y: 0.64264685
+    z: 3.0915663
+  m_PrimitiveSize:
+    x: 14.519672
+    y: 2.728433
+    z: 13.431243
+  m_PrimitiveOrientation:
+    Value:
+      x: -0
+      y: 0
+      z: 0
+    RotationOrder: 4
+  m_Capsule:
+    Height: 14.519672
+    Radius: 6.7156215
+    Axis: 0
+  m_Cylinder:
+    Height: 2.728433
+    Radius: 7.259836
+    Axis: 1
+  m_CylinderSideCount: 20
+  m_SphereRadius: 7.259836
+  m_MinimumSkinnedVertexWeight: 0.1
+  m_ConvexHullGenerationParameters:
+    m_SimplificationTolerance: 0.21779507
+    m_BevelRadius: 0.05
+    m_MinimumAngle: 2.5000002
+  m_CustomMesh: {fileID: 0}
+  m_ForceUnique: 0
+  m_Material:
+    m_SupportsTemplate: 1
+    m_Template: {fileID: 0}
+    m_IsTrigger:
+      m_Override: 0
+      m_Value: 1
+    m_Friction:
+      m_Override: 0
+      m_Value:
+        Value: 0.5
+        CombineMode: 0
+    m_Restitution:
+      m_Override: 0
+      m_Value:
+        Value: 0
+        CombineMode: 2
+    m_BelongsTo:
+      m_Override: 0
+      m_Value: 0101010101010101010101010101010101010101010101010101010101010101
+    m_CollidesWith:
+      m_Override: 0
+      m_Value: 0101010101010101010101010101010101010101010101010101010101010101
+    m_RaisesCollisionEvents:
+      m_Override: 0
+      m_Value: 0
+    m_CustomTags:
+      m_Override: 0
+      m_Value: 0000000000000000
+  m_ConvexRadius_Deprecated: -1
 --- !u!114 &1623262549438272755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +243,20 @@ MonoBehaviour:
   useBothShootPoints: 0
   timeBetweenShots: 1
   _timeLeftBetweenShot: 0
+--- !u!114 &5767078989745270574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635036052104799331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b86156f5d03218469a7361fc361c67f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHelth: 0
 --- !u!114 &4734286367690006319
 MonoBehaviour:
   m_ObjectHideFlags: 0
