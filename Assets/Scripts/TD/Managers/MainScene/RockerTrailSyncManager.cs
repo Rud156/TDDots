@@ -32,6 +32,7 @@ namespace TD.Managers.MainScene
             TrailRendererHolder trailRendererHolder = GetOrCreateEmptyParticleHolder();
             trailRendererHolder.isActive = true;
             trailRendererHolder.trailTransform.position = position;
+            trailRendererHolder.trailRenderer.Clear();
             trailRendererHolder.effectGameObject.SetActive(true);
 
             _trailHolders[trailRendererHolder.elementIndex] = trailRendererHolder;
