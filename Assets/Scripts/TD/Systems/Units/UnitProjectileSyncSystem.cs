@@ -45,6 +45,15 @@ namespace TD.Systems.Units
                             }
                                 break;
 
+                            case UnitProjectileSyncData.EffectType.RockerTrail:
+                            {
+                                float3 position = translation.Value;
+                                RockerTrailSyncManager.Instance.UpdateTrailPosition(
+                                    position, unitProjectileSync._effectIndex
+                                );
+                            }
+                                break;
+
                             case UnitProjectileSyncData.EffectType.Max:
                                 Debug.Log("Invalid Effect Type");
                                 break;
@@ -77,6 +86,16 @@ namespace TD.Systems.Units
                                     .GetEffectParticleIndex(translation.Value);
 
                                 unitProjectileSync._effectIndex = effectIndex;
+                                unitProjectileSync._effectInitialized = true;
+                            }
+                                break;
+
+                            case UnitProjectileSyncData.EffectType.RockerTrail:
+                            {
+                                int trailIndex = RockerTrailSyncManager.Instance
+                                    .GetTrailEffectIndex(translation.Value);
+
+                                unitProjectileSync._effectIndex = trailIndex;
                                 unitProjectileSync._effectInitialized = true;
                             }
                                 break;

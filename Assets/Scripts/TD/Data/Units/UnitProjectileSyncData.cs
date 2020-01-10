@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Unity.Entities;
+﻿using Unity.Entities;
 using UnityEngine;
 
 namespace TD.Data.Units
@@ -13,6 +11,7 @@ namespace TD.Data.Units
             None,
             BlueBullTrail,
             PrototypeZeroEffect,
+            RockerTrail,
             Max
         }
 
