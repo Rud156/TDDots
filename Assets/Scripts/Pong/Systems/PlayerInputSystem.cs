@@ -1,6 +1,7 @@
 ﻿using Unity.Entities;
 using Unity.Jobs;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Pong
 {

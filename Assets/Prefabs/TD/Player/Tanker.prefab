@@ -89,7 +89,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1098382601808780303}
-  - component: {fileID: 1067032035296470587}
+  - component: {fileID: 3687530236364747825}
+  - component: {fileID: 1396872491783834824}
+  - component: {fileID: -6795018387009002743}
   m_Layer: 0
   m_Name: Tanker
   m_TagString: Untagged
@@ -112,7 +114,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1067032035296470587
+--- !u!114 &3687530236364747825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093289121652816837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea2d55c3612d65418b1bc9b817ebf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1396872491783834824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093289121652816837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc844176d231bc41b30e636243d1515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementData:
+    x: 0
+    y: 0
+  _lastFrameShot: 0
+--- !u!114 &-6795018387009002743
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
