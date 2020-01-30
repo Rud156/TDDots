@@ -16545,7 +16545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8dcb03fb25d54846b6a8f431c8939d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTankEffectPrefab: {fileID: 0}
+  playerTankEffectPrefab: {fileID: 1498834344583173011, guid: 2fcf437e379833445b7f14a6e43e6dd9,
+    type: 3}
 --- !u!1 &1524732371
 GameObject:
   m_ObjectHideFlags: 0

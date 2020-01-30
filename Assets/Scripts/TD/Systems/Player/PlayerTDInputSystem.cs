@@ -56,6 +56,8 @@ namespace TD.Systems.Player
 
         public void OnShoot(InputAction.CallbackContext context)
         {
+            Debug.Log("Player Shot");
+
             if (_lastFrameShot)
             {
                 _lastFrameShot = false;
