@@ -12,6 +12,7 @@ namespace TD.Data.Common.Projectile
             BlueBullTrail,
             PrototypeZeroEffect,
             RockerTrail,
+            PlayerTankTrail,
             Max
         }
 

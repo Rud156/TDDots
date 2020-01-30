@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cbdfaa4f39f2e440a5f6900db9d9286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectType: 1
+  effectType: 4
   _effectIndex: 0
   _effectInitialized: 0
 --- !u!114 &7198360106392977557

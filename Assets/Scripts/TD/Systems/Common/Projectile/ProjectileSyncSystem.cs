@@ -54,6 +54,15 @@ namespace TD.Systems.Common.Projectile
                             }
                                 break;
 
+                            case ProjectileSyncData.EffectType.PlayerTankTrail:
+                            {
+                                float3 position = translation.Value;
+                                PlayerTankTrailSyncManager.Instance.UpdateTrailPosition(
+                                    position, unitProjectileSync._effectIndex
+                                );
+                            }
+                                break;
+
                             case ProjectileSyncData.EffectType.Max:
                                 Debug.Log("Invalid Effect Type");
                                 break;
@@ -93,6 +102,16 @@ namespace TD.Systems.Common.Projectile
                             case ProjectileSyncData.EffectType.RockerTrail:
                             {
                                 int trailIndex = RockerTrailSyncManager.Instance
+                                    .GetTrailEffectIndex(translation.Value);
+
+                                unitProjectileSync._effectIndex = trailIndex;
+                                unitProjectileSync._effectInitialized = true;
+                            }
+                                break;
+
+                            case ProjectileSyncData.EffectType.PlayerTankTrail:
+                            {
+                                int trailIndex = PlayerTankTrailSyncManager.Instance
                                     .GetTrailEffectIndex(translation.Value);
 
                                 unitProjectileSync._effectIndex = trailIndex;

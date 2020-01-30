@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 3769545079948886889}
   - component: {fileID: 3769545079948886870}
   - component: {fileID: 3769545079948886871}
+  - component: {fileID: 7452814281613649291}
   - component: {fileID: 3769545079948886868}
   - component: {fileID: 3769545079948886869}
   - component: {fileID: 3769545079948886866}
@@ -148,8 +149,29 @@ MonoBehaviour:
   _movementData:
     x: 0
     y: 0
-  _lastFrameShot: 0
   _currentVelocity: 0
+--- !u!114 &7452814281613649291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769545079948886864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72868396ae18eb94c8f9e74d6cb2a9ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 3416740868481432152, guid: d995edbc7ddd2e643a7393706c8a6c0b,
+    type: 3}
+  projectileLaunchVelcoity: 10
+  delayBetweenShots: 0.3
+  shootingOffset:
+    x: 0
+    y: 1.84
+    z: 6.02
+  _lastFrameShot: 0
+  _currentShootTimer: 0
 --- !u!114 &3769545079948886868
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,35 +5,39 @@ using Unity.Mathematics;
 using Unity.Physics;
 using Unity.Transforms;
 
-public class PlayerMovementSystem : JobComponentSystem
+namespace TD.Systems.Player
 {
-    protected override JobHandle OnUpdate(JobHandle inputDeps)
+    public class PlayerMovementSystem : JobComponentSystem
     {
-        float deltaTime = Time.DeltaTime;
+        protected override JobHandle OnUpdate(JobHandle inputDeps)
+        {
+            float deltaTime = Time.DeltaTime;
 
-        JobHandle jobHandle = Entities
-            .WithAll<PlayerTag>()
-            .ForEach((ref PhysicsVelocity physicsVelocity,
-                ref RotationEulerXYZ rotationEuler, ref PlayerInputData playerInputData,
-                in Rotation rotation) =>
-            {
-                // Movement
-                playerInputData._currentVelocity += playerInputData._movementData.y * playerInputData.velocityChangeRate * deltaTime;
-                if (playerInputData._movementData.y == 0)
+            JobHandle jobHandle = Entities
+                .WithAll<PlayerTag>()
+                .ForEach((ref PhysicsVelocity physicsVelocity,
+                    ref RotationEulerXYZ rotationEuler, ref PlayerMovementInputData playerMovementInputData,
+                    in Rotation rotation) =>
                 {
-                    playerInputData._currentVelocity -= playerInputData.velocityChangeRate * deltaTime;
-                }
+                    // Movement
+                    playerMovementInputData._currentVelocity +=
+                        playerMovementInputData._movementData.y * playerMovementInputData.velocityChangeRate * deltaTime;
+                    if (playerMovementInputData._movementData.y == 0)
+                    {
+                        playerMovementInputData._currentVelocity -= playerMovementInputData.velocityChangeRate * deltaTime;
+                    }
 
-                playerInputData._currentVelocity = math.clamp(playerInputData._currentVelocity, 0, playerInputData.maxVelocity);
-                physicsVelocity.Linear = math.forward(rotation.Value) * playerInputData._currentVelocity;
+                    playerMovementInputData._currentVelocity = math.clamp(playerMovementInputData._currentVelocity, 0, playerMovementInputData.maxVelocity);
+                    physicsVelocity.Linear = math.forward(rotation.Value) * playerMovementInputData._currentVelocity;
 
-                // Rotation
-                float3 currentRotation = rotationEuler.Value;
-                currentRotation.y += playerInputData._movementData.x * playerInputData.rotationSpeed * deltaTime;
-                rotationEuler.Value = currentRotation;
-            })
-            .Schedule(inputDeps);
+                    // Rotation
+                    float3 currentRotation = rotationEuler.Value;
+                    currentRotation.y += playerMovementInputData._movementData.x * playerMovementInputData.rotationSpeed * deltaTime;
+                    rotationEuler.Value = currentRotation;
+                })
+                .Schedule(inputDeps);
 
-        return jobHandle;
+            return jobHandle;
+        }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace TD.Data.Player
 {
     [GenerateAuthoringComponent]
-    public struct PlayerInputData : IComponentData
+    public struct PlayerMovementInputData : IComponentData
     {
         [Header("Movement")] public float velocityChangeRate;
         public float maxVelocity;
@@ -14,7 +14,6 @@ namespace TD.Data.Player
         [Header("Rotation")] public float rotationSpeed;
 
         [Header("Internal Data")] public float2 _movementData;
-        public bool _lastFrameShot;
         public float _currentVelocity;
     }
 }
