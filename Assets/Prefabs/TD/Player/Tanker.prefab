@@ -91,8 +91,9 @@ GameObject:
   - component: {fileID: 1098382601808780303}
   - component: {fileID: 3687530236364747825}
   - component: {fileID: 1396872491783834824}
-  - component: {fileID: 4490475395526605913}
-  - component: {fileID: 2926558656889647958}
+  - component: {fileID: 590833838907175230}
+  - component: {fileID: 8092366896504807415}
+  - component: {fileID: 6339201428212073318}
   - component: {fileID: 5781584223131556288}
   m_Layer: 0
   m_Name: Tanker
@@ -140,13 +141,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffc844176d231bc41b30e636243d1515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 21
-  rotationSpeed: 7
+  velocityChangeRate: 3
+  maxVelocity: 7
+  movementInputThreshold: 0.3
+  rotationSpeed: 3
   _movementData:
     x: 0
     y: 0
   _lastFrameShot: 0
---- !u!114 &4490475395526605913
+  _currentVelocity: 0
+--- !u!114 &590833838907175230
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -219,7 +223,7 @@ MonoBehaviour:
       m_Override: 0
       m_Value: 0000000000000000
   m_ConvexRadius_Deprecated: -1
---- !u!114 &2926558656889647958
+--- !u!114 &8092366896504807415
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,6 +272,19 @@ MonoBehaviour:
     Tag05: 0
     Tag06: 0
     Tag07: 0
+--- !u!114 &6339201428212073318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093289121652816837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30e2e0b941af9934b8ed411242eceb27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startYRotation: -90
 --- !u!114 &5781584223131556288
 MonoBehaviour:
   m_ObjectHideFlags: 0
