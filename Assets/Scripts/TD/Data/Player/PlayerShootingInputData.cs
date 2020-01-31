@@ -11,7 +11,7 @@ namespace TD.Data.Player
         public float projectileLaunchVelcoity;
 
         [Header("Shooting")] public float delayBetweenShots;
-        public float3 shootingOffset;
+        public Entity shootingPoint;
 
         [Header("Internal Data")] public bool _lastFrameShot;
         public float _currentShootTimer;

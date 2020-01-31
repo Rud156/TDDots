@@ -9,67 +9,57 @@ namespace TD.Systems.Units
 {
     public class UnitProjectileSpawnerSystem : JobComponentSystem
     {
-        private BeginInitializationEntityCommandBufferSystem _commandBufferSystem;
-
-        protected override void OnCreate()
-        {
-            base.OnCreate();
-
-            _commandBufferSystem = World.GetOrCreateSystem<BeginInitializationEntityCommandBufferSystem>();
-        }
-
         protected override JobHandle OnUpdate(JobHandle inputDeps)
         {
             float deltaTime = Time.DeltaTime;
-            var entityCommandBuffer = _commandBufferSystem.CreateCommandBuffer().ToConcurrent();
 
-            JobHandle jobHandle = Entities.ForEach(
-                (Entity entity, int entityInQueryIndex, ref UnitProjectileSpawnerData unitProjectileSpawner,
-                    in Translation translation, in Rotation rotation) =>
-                {
-                    if (unitProjectileSpawner._timeLeftBetweenShot <= 0)
+            Entities
+                .WithStructuralChanges()
+                .ForEach(
+                    (Entity entity, int entityInQueryIndex, ref UnitProjectileSpawnerData unitProjectileSpawner,
+                        in Translation translation, in Rotation rotation) =>
                     {
-                        float3 forwardDirection =
-                            math.forward(rotation.Value) * unitProjectileSpawner.projectileLaunchVelocity;
-
-                        Entity projectileInstanceA =
-                            entityCommandBuffer.Instantiate(entityInQueryIndex, unitProjectileSpawner.projectile);
-                        entityCommandBuffer.SetComponent(entityInQueryIndex, projectileInstanceA, new Translation()
+                        if (unitProjectileSpawner._timeLeftBetweenShot <= 0)
                         {
-                            Value = unitProjectileSpawner.shootingOffsetA + translation.Value
-                        });
+                            float3 forwardDirection =
+                                math.forward(rotation.Value) * unitProjectileSpawner.projectileLaunchVelocity;
 
-                        entityCommandBuffer.SetComponent(entityInQueryIndex, projectileInstanceA, new PhysicsVelocity()
-                        {
-                            Linear = forwardDirection
-                        });
-
-                        if (unitProjectileSpawner.useBothShootPoints)
-                        {
-                            Entity projectileInstanceB =
-                                entityCommandBuffer.Instantiate(entityInQueryIndex, unitProjectileSpawner.projectile);
-                            entityCommandBuffer.SetComponent(entityInQueryIndex, projectileInstanceB, new Translation()
+                            Entity projectileInstanceA = EntityManager.Instantiate(unitProjectileSpawner.projectile);
+                            float3 shootingOffsetA = EntityManager.GetComponentData<LocalToWorld>(unitProjectileSpawner.shootingPointA).Position;
+                            EntityManager.SetComponentData(projectileInstanceA, new Translation()
                             {
-                                Value = unitProjectileSpawner.shootingOffsetB + translation.Value
+                                Value = shootingOffsetA
                             });
-                            entityCommandBuffer.SetComponent(entityInQueryIndex, projectileInstanceB,
-                                new PhysicsVelocity()
+
+                            EntityManager.SetComponentData(projectileInstanceA, new PhysicsVelocity()
+                            {
+                                Linear = forwardDirection
+                            });
+
+                            if (unitProjectileSpawner.useBothShootPoints)
+                            {
+                                Entity projectileInstanceB = EntityManager.Instantiate(unitProjectileSpawner.projectile);
+                                float3 shootingOffsetB = EntityManager.GetComponentData<LocalToWorld>(unitProjectileSpawner.shootingPointB).Position;
+                                EntityManager.SetComponentData(projectileInstanceB, new Translation()
                                 {
-                                    Linear = forwardDirection
+                                    Value = shootingOffsetB
                                 });
+                                EntityManager.SetComponentData(projectileInstanceB,
+                                    new PhysicsVelocity()
+                                    {
+                                        Linear = forwardDirection
+                                    });
+                            }
+
+                            unitProjectileSpawner._timeLeftBetweenShot = unitProjectileSpawner.timeBetweenShots;
                         }
+                        else
+                        {
+                            unitProjectileSpawner._timeLeftBetweenShot -= deltaTime;
+                        }
+                    }).Run();
 
-                        unitProjectileSpawner._timeLeftBetweenShot = unitProjectileSpawner.timeBetweenShots;
-                    }
-                    else
-                    {
-                        unitProjectileSpawner._timeLeftBetweenShot -= deltaTime;
-                    }
-                }).Schedule(inputDeps);
-
-            _commandBufferSystem.AddJobHandleForProducer(jobHandle);
-
-            return jobHandle;
+            return default;
         }
     }
 }

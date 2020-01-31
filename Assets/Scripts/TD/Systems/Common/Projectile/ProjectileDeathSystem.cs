@@ -1,6 +1,5 @@
 ﻿using System;
 using TD.Data.Common.Projectile;
-using TD.Managers.MainScene;
 using TD.Managers.MainScene.Effects;
 using Unity.Entities;
 using Unity.Jobs;
@@ -50,6 +49,10 @@ namespace TD.Systems.Common.Projectile
 
                                 case ProjectileSyncData.EffectType.RockerTrail:
                                     RockerTrailSyncManager.Instance.StopTrailEffect(projectileSync._effectIndex);
+                                    break;
+
+                                case ProjectileSyncData.EffectType.PlayerTankTrail:
+                                    PlayerTankTrailSyncManager.Instance.StopTrailEffect(projectileSync._effectIndex);
                                     break;
 
                                 case ProjectileSyncData.EffectType.Max:

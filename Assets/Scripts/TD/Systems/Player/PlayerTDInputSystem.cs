@@ -56,7 +56,11 @@ namespace TD.Systems.Player
 
         public void OnShoot(InputAction.CallbackContext context)
         {
-            Debug.Log("Player Shot");
+            // We only want a single action for each button pressed
+            if (!context.performed)
+            {
+                return;
+            }
 
             if (_lastFrameShot)
             {

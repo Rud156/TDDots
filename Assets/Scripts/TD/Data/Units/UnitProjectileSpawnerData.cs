@@ -1,5 +1,4 @@
 ﻿using Unity.Entities;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace TD.Data.Units
@@ -10,9 +9,9 @@ namespace TD.Data.Units
         [Header("Projectile")] public Entity projectile;
         public float projectileLaunchVelocity;
 
-        [Header("Shooting Offsets")] public float3 shootingOffsetA;
-        public float3 shootingOffsetB;
-        public bool useBothShootPoints;
+        [Header("Shooting Offsets")] public bool useBothShootPoints;
+        public Entity shootingPointA;
+        public Entity shootingPointB;
 
         [Header("Timer")] public float timeBetweenShots;
 

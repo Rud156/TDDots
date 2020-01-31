@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4299074485925077729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8088170858067383436}
+  m_Layer: 0
+  m_Name: Shooting Point A
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8088170858067383436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299074485925077729}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.52, z: 9.31}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5630786886347464721}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5635036052104799331
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,7 +65,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.56, y: 0.89505, z: 1.17}
   m_LocalScale: {x: 0.10312, y: 0.10312, z: 0.10312}
-  m_Children: []
+  m_Children:
+  - {fileID: 8088170858067383436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,15 +263,9 @@ MonoBehaviour:
   projectile: {fileID: 1496391033227999803, guid: 9b062fe98bab1dc4dba378e7391728bf,
     type: 3}
   projectileLaunchVelocity: 10
-  shootingOffsetA:
-    x: 0
-    y: 0
-    z: 0
-  shootingOffsetB:
-    x: 0
-    y: 0
-    z: 0
   useBothShootPoints: 0
+  shootingPointA: {fileID: 4299074485925077729}
+  shootingPointB: {fileID: 0}
   timeBetweenShots: 1
   _timeLeftBetweenShot: 0
 --- !u!114 &5767078989745270574
