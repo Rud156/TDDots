@@ -146,10 +146,16 @@ MonoBehaviour:
   velocityChangeRate: 3
   maxVelocity: 7
   movementInputThreshold: 0.3
+  boostMultiplier: 2
+  boostRechargeTime: 7
+  boostLifeTime: 3
   rotationSpeed: 3
   _movementData:
     x: 0
     y: 0
+  _boostPressedLastFrame: 0
+  _boostTimeLeft: 0
+  _boostRechargeTimeLeft: 0
   _currentVelocity: 0
 --- !u!114 &7452814281613649291
 MonoBehaviour:

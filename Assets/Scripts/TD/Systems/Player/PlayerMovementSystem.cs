@@ -19,20 +19,53 @@ namespace TD.Systems.Player
                     ref RotationEulerXYZ rotationEuler, ref PlayerMovementInputData playerMovementInputData,
                     in Rotation rotation) =>
                 {
-                    // Movement
-                    playerMovementInputData._currentVelocity +=
-                        playerMovementInputData._movementData.y * playerMovementInputData.velocityChangeRate * deltaTime;
-                    if (playerMovementInputData._movementData.y == 0)
+                    // Boost
+                    float boostAmount = 0;
+                    if (playerMovementInputData._boostRechargeTimeLeft > 0)
                     {
-                        playerMovementInputData._currentVelocity -= playerMovementInputData.velocityChangeRate * deltaTime;
+                        playerMovementInputData._boostRechargeTimeLeft -= deltaTime;
+                    }
+                    else
+                    {
+                        if (playerMovementInputData._boostTimeLeft > 0)
+                        {
+                            playerMovementInputData._boostTimeLeft -= deltaTime;
+
+                            if (playerMovementInputData._boostTimeLeft <= 0)
+                            {
+                                playerMovementInputData._boostRechargeTimeLeft =
+                                    playerMovementInputData.boostRechargeTime;
+                            }
+                        }
+
+                        if (playerMovementInputData._boostPressedLastFrame)
+                        {
+                            if (playerMovementInputData._boostTimeLeft <= 0)
+                            {
+                                boostAmount = playerMovementInputData.boostMultiplier;
+                                playerMovementInputData._boostTimeLeft = playerMovementInputData.boostLifeTime;
+                            }
+                        }
                     }
 
-                    playerMovementInputData._currentVelocity = math.clamp(playerMovementInputData._currentVelocity, 0, playerMovementInputData.maxVelocity);
+                    // Movement
+                    playerMovementInputData._currentVelocity +=
+                        playerMovementInputData._movementData.y * playerMovementInputData.velocityChangeRate *
+                        deltaTime;
+                    if (playerMovementInputData._movementData.y == 0)
+                    {
+                        playerMovementInputData._currentVelocity -=
+                            playerMovementInputData.velocityChangeRate * deltaTime;
+                    }
+
+                    playerMovementInputData._currentVelocity = math.clamp(playerMovementInputData._currentVelocity, 0,
+                        playerMovementInputData.maxVelocity);
                     physicsVelocity.Linear = math.forward(rotation.Value) * playerMovementInputData._currentVelocity;
 
                     // Rotation
                     float3 currentRotation = rotationEuler.Value;
-                    currentRotation.y += playerMovementInputData._movementData.x * playerMovementInputData.rotationSpeed * deltaTime;
+                    currentRotation.y += playerMovementInputData._movementData.x *
+                                         playerMovementInputData.rotationSpeed * deltaTime;
                     rotationEuler.Value = currentRotation;
                 })
                 .Schedule(inputDeps);

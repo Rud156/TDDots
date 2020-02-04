@@ -13,6 +13,7 @@ namespace TD.Systems.Player
 
         private float2 _movement;
         private bool _lastFrameShot;
+        private bool _lastFrameBoosted;
 
         protected override void OnCreate()
         {
@@ -27,10 +28,14 @@ namespace TD.Systems.Player
             Entities
                 .WithAll<PlayerTag>()
                 .WithoutBurst()
-                .ForEach((ref PlayerMovementInputData playerMovementInputData, ref PlayerShootingInputData playerShootingInputData) =>
+                .ForEach((ref PlayerMovementInputData playerMovementInputData,
+                    ref PlayerShootingInputData playerShootingInputData) =>
                 {
                     playerMovementInputData._movementData = _movement;
+                    playerMovementInputData._boostPressedLastFrame = _lastFrameBoosted;
                     playerShootingInputData._lastFrameShot = _lastFrameShot;
+
+                    _lastFrameBoosted = false;
                 }).Run();
 
             return default;
@@ -62,14 +67,18 @@ namespace TD.Systems.Player
                 return;
             }
 
-            if (_lastFrameShot)
+            _lastFrameShot = !_lastFrameShot;
+        }
+
+        public void OnBoost(InputAction.CallbackContext context)
+        {
+            // We only want a single action for each button pressed
+            if (!context.performed)
             {
-                _lastFrameShot = false;
+                return;
             }
-            else
-            {
-                _lastFrameShot = true;
-            }
+
+            _lastFrameBoosted = true;
         }
 
         #endregion
